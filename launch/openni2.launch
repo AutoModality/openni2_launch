@@ -54,19 +54,20 @@
 
   <!-- Worker threads for the nodelet manager -->
   <arg name="num_worker_threads" default="4" />
+<arg name="manager" value="vision_nodelet_manager" />
 
   <!-- Push down all topics/nodelets into "camera" namespace -->
-  <group ns="$(arg camera)">
+  <!--<group ns="$(arg camera)">-->
   
 	  <!-- Start nodelet manager -->
-	  <arg name="manager" value="$(arg camera)_nodelet_manager" />
-	  <arg name="debug" default="false" /> <!-- Run manager in GDB? -->
+	  
+	  <!--<arg name="debug" default="false" />
 	  <include file="$(find rgbd_launch)/launch/includes/manager.launch.xml">
 	    <arg name="name" value="$(arg manager)" />
 	    <arg name="debug" value="$(arg debug)" />
 	    <arg name="num_worker_threads"  value="$(arg num_worker_threads)" />
-	  </include>
-
+	  </include>-->
+	
     <!-- Load driver -->
     <include if="$(arg load_driver)"
 	     file="$(find openni2_launch)/launch/includes/device.launch.xml">
@@ -104,12 +105,6 @@
       <arg name="sw_registered_processing"        value="$(arg sw_registered_processing)" />
     </include>
 
-  </group> <!-- camera -->
-
-  <!-- Load reasonable defaults for the relative pose between cameras -->
-  <include if="$(arg publish_tf)"
-	   file="$(find rgbd_launch)/launch/kinect_frames.launch">
-    <arg name="camera" value="$(arg camera)" />
-  </include>
-
+	
+ <!--</group> --> <!-- camera -->
 </launch>
