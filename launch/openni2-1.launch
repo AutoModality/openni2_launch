@@ -10,6 +10,7 @@
   <!-- device_id can have the following formats:
          "#1"  : the first device found
          "2@X" : the Xth device on USB bus 2 -->
+         <!-- pass device serial number here -->
   <arg name="device_id" default="#1" />
 
   <!-- By default, calibrations are stored to file://${ROS_HOME}/camera_info/${NAME}.yaml,
